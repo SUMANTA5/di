@@ -25,8 +25,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initUi()
         postViewModel.response.observe(this, Observer {
-            Log.d("main", it[0].body)
+            postAdapter.setPostData(it as ArrayList<Post>)
+            progressBar.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
         })
 
     }

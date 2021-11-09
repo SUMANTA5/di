@@ -7,10 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.sumanta.myapplication.model.Post
 import com.sumanta.myapplication.rapo.PostRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
+import javax.inject.Inject
 
+@HiltViewModel
 class PostViewModel
-@ViewModelInject
+@Inject
 constructor
     (private val postRepository: PostRepository) : ViewModel() {
 
